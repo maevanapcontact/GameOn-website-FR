@@ -9,6 +9,7 @@ const formDataElt = document.querySelectorAll(".formData");
 const closeModalBtn = document.querySelectorAll("#close");
 const successMessageElt = document.querySelectorAll("#success-message");
 const formElt = document.querySelectorAll("#form");
+const successCloseBtnElt = document.querySelectorAll("#success-close-btn");
 
 /** Form elements */
 const firstElt = document.getElementById("first");
@@ -32,7 +33,7 @@ modalBtnElt.forEach((btn) => btn.addEventListener("click", launchModal));
 
 /** close modal events: CLICK */
 closeModalBtn.forEach(elt => elt.addEventListener("click", closeModal));
-successMessageElt.forEach(elt => elt.addEventListener("click", closeModal));
+successCloseBtnElt.forEach(elt => elt.addEventListener("click", closeModal));
 
 /** Validate form event: SUBMIT */
 formElt.forEach(elt => elt.addEventListener("submit", validate));

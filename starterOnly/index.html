@@ -14,7 +14,7 @@
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img alt="logo" src="Logo.png" width="250" height="45" />
     </div>
     <div class="main-navbar">
       
@@ -26,7 +26,6 @@
       <a href="javascript:void(0);" class="icon" onclick="editNav()">
         <i class="fa fa-bars"></i>
       </a>
-    </div>
     </div>
   </div>
     <main>
@@ -45,7 +44,7 @@
           </button>
         </div>
         <div class="hero-img">
-          <img src="./bg_img.jpg" alt="img" />
+          <img src="./bg_img.jpg" alt="player playing in front of a screen" width="354" height="329"/>
         </div>
         <button type="button" class="btn-signup modal-btn">
           je m'inscris
@@ -59,9 +58,9 @@
             <div class="success-message" id="success-message">
               <span>Merci ! Votre réservation a été reçue.</span>
               <input
-                class="btn-submit"
+                id="success-close-btn"
+                class="btn-submit button"
                 type="button"
-                class="button"
                 value="Fermer"
               />
             </div>
@@ -208,9 +207,8 @@
                 <br>
               </div>
               <input
-                class="btn-submit"
+                class="btn-submit button"
                 type="submit"
-                class="button"
                 value="C'est parti"
               />
             </form>
