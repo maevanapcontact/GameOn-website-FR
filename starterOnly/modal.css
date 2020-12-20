@@ -188,6 +188,18 @@ main {
   margin: 15px auto;
 }
 
+.success-message {
+  width: 100%;
+  display: none;
+}
+
+.success-message span {
+  display: block;
+  padding: 250px 20px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
 label {
   font-family: var(--font-default);
   font-size: 17px;

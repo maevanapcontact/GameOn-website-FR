@@ -14,6 +14,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeModalBtn = document.querySelectorAll("#close");
+const successMessageElt = document.querySelectorAll("#success-message");
 const formElt = document.querySelectorAll("#form");
 const cityElt = document.querySelector("input[type=radio]");
 
@@ -33,6 +34,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // close modal event
 closeModalBtn.forEach(elt => elt.addEventListener("click", closeModal));
+successMessageElt.forEach(elt => elt.addEventListener("click", closeModal));
 
 // Validate form
 formElt.forEach(elt => elt.addEventListener("submit", validate));
@@ -44,16 +46,19 @@ formElt.forEach(elt => elt.addEventListener("submit", validate));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  formElt[0].style.display = "block";
 }
 
 // close modal form
 function closeModal() {
   modalbg.style.display = "none";
+  successMessageElt[0].style.display = "none";
 }
 
 // Validate form
 function validate(e) {
   e.preventDefault();
+  let formValid = true;
 
   let inputFirst = new InputElement(firstElt, "Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
   isLongEnough(firstElt.value.length, 2) ? inputFirst.removeDisplayError() : inputFirst.displayError();
@@ -72,6 +77,14 @@ function validate(e) {
 
   let inputCondition = new InputElement(checkbox1Elt, "Vous devez vérifier que vous acceptez les termes et conditions.");
   isCheckboxChecked("checkbox1") ? inputCondition.removeDisplayError() : inputCondition.displayError();
+
+  if (formValid) displaySuccess();
+}
+
+// display the success message
+function displaySuccess() {
+  formElt[0].style.display = "none";
+  successMessageElt[0].style.display = "block";
 }
 
 // check if a string match an email regex format
