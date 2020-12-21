@@ -22,7 +22,8 @@ const conditionsElt = document.getElementById("checkbox1");
 
 /** Regex Formats */
 const birthdateFormat = /^(19|20)\d{2}[-](0?[1-9]|1[012])[-](0[1-9]|[12]\d|3[01])$/;
-const mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const mailFormat = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+const positiveIntegerFormat = /^\+?(0|[1-9]\d*)$/;
 
 /** EVENTS
  * ---------------------------------------
@@ -123,7 +124,7 @@ function isBirthdateValid() {
  */
 function isQuantityValid() {
   let inputQuantity = new InputElement(quantityElt, "Veuillez entrer un nombre.");
-  let isValid = isFilledWithNumber(quantityElt.value);
+  let isValid = isStringMatchRegexFormat(quantityElt.value, positiveIntegerFormat);
   removeOrDisplayError(inputQuantity, isValid);
 
   return isValid;
@@ -189,14 +190,6 @@ function validate(e) {
 */
 function isStringMatchRegexFormat(str, strFormat) {
   return strFormat.test(str);
-}
-
-/** check if the data is a number / not empty
- * @param data any data type to check
- * @returns {boolean}
-*/
-function isFilledWithNumber(data) {
-  return data != "" && !isNaN(data);
 }
 
 /** check if at least one radio button is checked
